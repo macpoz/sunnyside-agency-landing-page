@@ -68,8 +68,9 @@ header {
   background-image: url("./images/mobile/image-header.jpg");
   background-size: cover;
 
-  @media (min-width: $desktop) {
+  @media (min-width: $tablet) {
     background-image: url("./images/desktop/image-header.jpg");
+    background-position: center;
   }
 
   @media (min-width: $desktop-xl) {
@@ -80,8 +81,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 2rem 1.5rem;
+    margin: 1.7rem 1rem 1.7rem 1.5rem;
     position: relative;
+
+    @media (min-width: $desktop) {
+      margin: 2.3rem 2.5rem;
+    }
 
     .logo {
       height: 24px;
@@ -116,7 +121,7 @@ header {
       }
 
       li:last-of-type {
-        background-color: white;
+        background-color: $white;
         padding: 1.1rem 1.75rem;
         border-radius: 2rem;
         text-transform: uppercase;
@@ -151,6 +156,12 @@ header {
       button {
         border: none;
         background: none;
+        cursor: pointer;
+        padding: .5rem;
+
+        &:hover{
+          background-color: rgba($white, .4);
+        }
       }
 
       .mobile-menu {
@@ -192,8 +203,8 @@ header {
 
         &:before {
           content: "";
-          width: 0px;
-          height: 0px;
+          width: 0;
+          height: 0;
           border-bottom: 17px solid #fafafa;
           border-left: 17px solid transparent;
           border-right: 17px solid transparent;
@@ -214,7 +225,7 @@ header {
     flex-direction: column;
     align-items: center;
     @media (min-width: $desktop-xl) {
-      margin-top: 6.7rem;
+      margin-top: 4.2rem;
     }
 
     h1 {
@@ -263,19 +274,16 @@ header {
       flex-direction: row !important;
     }
 
-    div {
+    .block {
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 100%;
 
       @media (min-width: $desktop) {
-        width: 70%;
+        width: 50%;
       }
 
-      @media (min-width: $desktop-xl) {
-        width: 62%;
-        align-items: normal;
-      }
     }
 
     picture {
@@ -289,77 +297,24 @@ header {
         width: 100%;
       }
     }
-  }
 
-  .bottom-row {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: auto;
 
-    @media (min-width: $desktop) {
-      flex-direction: row;
-    }
-
-    @media (min-width: $desktop-xl) {
-      height: 600px;
-    }
-
-    div {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    picture {
-      display: flex;
-      @media (min-width: $tablet) {
-        width: 100%;
-      }
-
-      img {
-        width: 100%;
-      }
-    }
-
-  }
-
-  .text-block {
-    flex-direction: column;
-    justify-content: center;
-    width: 90%;
-    flex: none;
-    text-align: center;
-
-    @media (min-width: $desktop-xl) {
-      text-align: left;
-      width: 62%;
-    }
-
-    h2 {
-      font-size: 24pt;
-      font-family: "Fraunces", sans-serif;
-      font-weight: 900;
-      margin-bottom: 1.9rem;
-      color: $very-dark-desaturated-blue;
+    .text-block-left {
+      margin: 3.9rem 0 3.5rem;
 
       @media (min-width: $desktop-xl) {
-        font-size: 30.7pt;
+        margin-left: 3.4rem;
+        margin-top: 3.4rem;
       }
     }
 
-    p {
-      margin-bottom: 1.7rem;
-      line-height: 1.7em;
-      font-size: 13.5pt;
-      color: $dark-grayish-blue;
+    .text-block-right {
+      margin: 3.9rem 0 3.5rem;
 
       @media (min-width: $desktop-xl) {
-        margin-bottom: 2.7rem;
+        margin-left: -3.4rem;
+        margin-top: 3.4rem;
       }
-
     }
 
     .learn-more-container{
@@ -384,6 +339,7 @@ header {
         border-radius: 1rem;
         position: absolute;
         bottom: -0.2rem;
+        left: 0;
       }
 
       .red-marker{
@@ -406,67 +362,128 @@ header {
 
 
     }
-
   }
 
-  .text-block-left {
-    margin: 3.9rem 0 3.5rem;
-
-    @media (min-width: $desktop-xl) {
-      margin-left: 3.4rem;
-      margin-top: 3.4rem;
-    }
-  }
-
-  .text-block-right {
-    margin: 3.9rem 0 3.5rem;
-
-    @media (min-width: $desktop-xl) {
-      margin-left: -3.4rem;
-      margin-top: 3.4rem;
-    }
-  }
-
-  .text-block-bottom {
-    margin-top: -13rem;
-    margin-bottom: 4rem;
-    width: 90%;
-    text-align: center;
-    opacity: 0.65;
+  .bottom-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
 
     @media (min-width: $desktop) {
-      margin-top: -11.3rem;
-      margin-bottom: 0;
+      flex-direction: row;
+    }
+
+    .block {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      position: relative;
+
+      @media (min-width: $desktop) {
+        width: 50%;
+      }
+    }
+
+    picture {
+      display: flex;
+      @media (min-width: $tablet) {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .text-block-bottom {
+      text-align: center;
+      align-items: center;
+      opacity: 0.65;
+      position: absolute;
+      bottom: 3.8rem;
+
+      @media (min-width: $desktop) {
+        width: 70%;
+        bottom: 2.3rem;
+      }
+
+      @media (min-width: $desktop-xl) {
+        width: 46%;
+        bottom: 3.8rem;
+      }
+
+      .graphic-design-block {
+        color: $dark-desaturated-cyan;
+      }
+
+      .photography-block {
+        color: $dark-blue;
+      }
+
+      h3 {
+        font-size: 21.1pt;
+        font-family: "Fraunces", sans-serif;
+        font-weight: 900;
+        margin-bottom: 1.8rem;
+        text-transform: capitalize;
+      }
+
+      p {
+        margin-bottom: 0;
+        line-height: 1.7em;
+        font-size: 11.8pt;
+        color: inherit;
+      }
+
+    }
+
+  }
+
+  .text-block {
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    flex: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    @media (min-width: $desktop) {
       width: 70%;
     }
 
     @media (min-width: $desktop-xl) {
-      margin-top: -16.3rem;
-      margin-bottom: 0;
-      width: 46%;
+      align-items: flex-start;
+      text-align: left;
+      width: 62%;
     }
 
-    .graphic-design-block {
-      color: $dark-desaturated-cyan;
-    }
 
-    .photography-block {
-      color: $dark-blue;
-    }
-
-    h3 {
-      font-size: 21.1pt;
+    h2 {
+      font-size: 24pt;
       font-family: "Fraunces", sans-serif;
       font-weight: 900;
-      margin-bottom: 1.8rem;
-      text-transform: capitalize;
+      margin-bottom: 1.9rem;
+      color: $very-dark-desaturated-blue;
+
+      @media (min-width: $desktop-xl) {
+        font-size: 30.7pt;
+      }
     }
 
     p {
-      margin-bottom: 0;
+      margin-bottom: 1.7rem;
       line-height: 1.7em;
-      font-size: 11.8pt;
-      color: inherit;
+      font-size: 13.5pt;
+      color: $dark-grayish-blue;
+
+      @media (min-width: $desktop-xl) {
+        margin-bottom: 2.7rem;
+      }
+
     }
 
   }
@@ -604,7 +621,6 @@ header {
   }
 
 }
-
 
 footer {
   height: 350px;
