@@ -101,6 +101,9 @@ header .header-top nav > ul li a {
   text-decoration: none;
   color: white;
 }
+header .header-top nav > ul li a:hover {
+  color: #5a636c;
+}
 header .header-top nav > ul li:last-of-type {
   background-color: white;
   padding: 1.1rem 1.75rem;
@@ -156,6 +159,9 @@ header .header-top .mobile-menu-container .mobile-menu ul li a {
   color: #818498;
   font-size: 15pt;
 }
+header .header-top .mobile-menu-container .mobile-menu ul li a:hover {
+  color: #5a636c;
+}
 header .header-top .mobile-menu-container .mobile-menu ul li:last-of-type {
   background-color: #fad400;
   padding: 1.1rem 1.75rem;
@@ -164,10 +170,13 @@ header .header-top .mobile-menu-container .mobile-menu ul li:last-of-type {
   cursor: pointer;
 }
 header .header-top .mobile-menu-container .mobile-menu ul li:last-of-type a {
-  color: black;
+  color: #23303e;
   font-family: "Fraunces", sans-serif;
   font-size: 12pt;
   font-weight: 700;
+}
+header .header-top .mobile-menu-container .mobile-menu ul li:last-of-type:hover {
+  background-color: rgba(250, 212, 0, 0.7);
 }
 header .header-top .mobile-menu-container .mobile-menu:before {
   content: "";

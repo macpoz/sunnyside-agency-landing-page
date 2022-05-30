@@ -118,6 +118,9 @@ header {
       li a {
         text-decoration: none;
         color: $white;
+          &:hover{
+          color: $very-dark-grayish-blue;
+          }
       }
 
       li:last-of-type {
@@ -182,6 +185,10 @@ header {
             text-decoration: none;
             color: $dark-grayish-blue;
             font-size: 15pt;
+
+            &:hover{
+              color: $very-dark-grayish-blue;
+            }
           }
 
           li:last-of-type {
@@ -192,11 +199,17 @@ header {
             cursor: pointer;
 
             a {
-              color: black;
+              color: $very-dark-desaturated-blue;
               font-family: 'Fraunces', sans-serif;
               font-size: 12pt;
               font-weight: 700;
             }
+
+
+            &:hover {
+              background-color: rgba($yellow, .7);
+            }
+
           }
 
         }
