@@ -1,0 +1,674 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap');
+
+
+[x-cloak] { display: none !important; }
+
+//Primary
+
+$soft-red: hsl(7, 99%, 70%);
+$yellow: hsl(51, 100%, 49%);
+$dark-desaturated-cyan: hsl(167, 40%, 24%);
+$dark-blue: hsl(198, 62%, 26%);
+$dark-moderate-cyan: hsl(168, 34%, 41%);
+
+//Neutral
+
+$very-dark-desaturated-blue: hsl(212, 27%, 19%);
+$very-dark-grayish-blue: hsl(213, 9%, 39%);
+$dark-grayish-blue: hsl(232, 10%, 55%);
+$grayish-blue: hsl(210, 4%, 67%);
+$white: hsl(0, 0%, 100%);
+
+$social-icon-color: #2C7566;
+
+$tablet: 768px;
+$desktop: 1024px;
+$desktop-xl: 1440px;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: rgba($soft-red, 0.05);
+}
+
+.container {
+  width: 375px;
+  height: 100%;
+
+  @media (min-width: $tablet) {
+    width: $tablet;
+  }
+
+  @media (min-width: $desktop) {
+    width: $desktop;
+  }
+
+  @media (min-width: $desktop-xl) {
+    width: $desktop-xl;
+
+  }
+}
+
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-image: url("./images/mobile/image-header.jpg");
+  background-size: cover;
+
+  @media (min-width: $desktop) {
+    background-image: url("./images/desktop/image-header.jpg");
+  }
+
+  @media (min-width: $desktop-xl) {
+    height: 800px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 1.5rem;
+    position: relative;
+
+    .logo {
+      height: 24px;
+      color: $white;
+      @media (min-width: $desktop-xl) {
+        height: 33px;
+      }
+
+    }
+
+    .desktop-menu {
+      display: none;
+      @media (min-width: $desktop) {
+        display: flex;
+      }
+    }
+
+    nav > ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $white;
+      list-style: none;
+      width: 465px;
+      font-size: 13pt;
+      font-weight: 600;
+
+
+      li a {
+        text-decoration: none;
+        color: $white;
+      }
+
+      li:last-of-type {
+        background-color: white;
+        padding: 1.1rem 1.75rem;
+        border-radius: 2rem;
+        text-transform: uppercase;
+        cursor: pointer;
+
+        a {
+          color: black;
+          font-family: 'Fraunces', sans-serif;
+          font-size: 12pt;
+          font-weight: 700;
+
+        }
+
+        &:hover {
+          background-color: rgba($white, .4);
+
+          a {
+            color: $white;
+          }
+        }
+      }
+
+    }
+
+    .mobile-menu-container {
+      display: flex;
+
+      @media (min-width: $desktop) {
+        display: none;
+      }
+
+      button {
+        border: none;
+        background: none;
+      }
+
+      .mobile-menu {
+        position: absolute;
+        top: 4.7rem;
+        background-color: adjust-color($white, $saturation: -23%, $lightness: -2%);
+        right: 0;
+        left: 0;
+        padding: 2.4rem 0;
+
+        ul {
+          flex-direction: column;
+          width: 100%;
+          display: flex;
+          height: 227px;
+
+          li a {
+            text-decoration: none;
+            color: $dark-grayish-blue;
+            font-size: 15pt;
+          }
+
+          li:last-of-type {
+            background-color: $yellow;
+            padding: 1.1rem 1.75rem;
+            border-radius: 2rem;
+            text-transform: uppercase;
+            cursor: pointer;
+
+            a {
+              color: black;
+              font-family: 'Fraunces', sans-serif;
+              font-size: 12pt;
+              font-weight: 700;
+            }
+          }
+
+        }
+
+        &:before {
+          content: "";
+          width: 0px;
+          height: 0px;
+          border-bottom: 17px solid #fafafa;
+          border-left: 17px solid transparent;
+          border-right: 17px solid transparent;
+          transform: rotate(135deg);
+          display: block;
+          position: absolute;
+          top: -14px;
+          right: -11px;
+        }
+      }
+
+    }
+  }
+
+  .header-center {
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media (min-width: $desktop-xl) {
+      margin-top: 6.7rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28pt;
+      color: white;
+      font-family: "Fraunces", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.6rem;
+      font-weight: 900;
+      @media (min-width: $desktop-xl) {
+        font-size: 43pt;
+      }
+
+    }
+
+    img {
+      width: 36px;
+      height: 114px;
+      margin-top: 3.2rem;
+      margin-bottom: 8.4rem;
+
+      @media (min-width: $desktop-xl) {
+        margin-top: 5.7rem;
+        margin-bottom: 0;
+      }
+
+    }
+
+  }
+
+}
+
+.services {
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &:first-of-type {
+      flex-direction: column-reverse;
+    }
+
+    @media (min-width: $desktop) {
+      flex-direction: row !important;
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media (min-width: $desktop) {
+        width: 70%;
+      }
+
+      @media (min-width: $desktop-xl) {
+        width: 62%;
+        align-items: normal;
+      }
+    }
+
+    picture {
+      display: flex;
+
+      @media (min-width: $tablet) {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .bottom-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+
+    @media (min-width: $desktop) {
+      flex-direction: row;
+    }
+
+    @media (min-width: $desktop-xl) {
+      height: 600px;
+    }
+
+    div {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    picture {
+      display: flex;
+      @media (min-width: $tablet) {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+  }
+
+  .text-block {
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    flex: none;
+    text-align: center;
+
+    @media (min-width: $desktop-xl) {
+      text-align: left;
+      width: 62%;
+    }
+
+    h2 {
+      font-size: 24pt;
+      font-family: "Fraunces", sans-serif;
+      font-weight: 900;
+      margin-bottom: 1.9rem;
+      color: $very-dark-desaturated-blue;
+
+      @media (min-width: $desktop-xl) {
+        font-size: 30.7pt;
+      }
+    }
+
+    p {
+      margin-bottom: 1.7rem;
+      line-height: 1.7em;
+      font-size: 13.5pt;
+      color: $dark-grayish-blue;
+
+      @media (min-width: $desktop-xl) {
+        margin-bottom: 2.7rem;
+      }
+
+    }
+
+    .learn-more-container{
+      width: fit-content;
+      position: relative;
+      padding: 0 0.5em;
+      cursor: pointer;
+
+      a{
+        font-family: "Fraunces", sans-serif;
+        font-weight: 900;
+        text-decoration: none;
+        font-size: 12pt;
+        text-transform: uppercase;
+        color: $very-dark-desaturated-blue;
+      }
+
+      .marker{
+        height: 0.5rem;
+        width: 100%;
+        opacity: 0.5;
+        border-radius: 1rem;
+        position: absolute;
+        bottom: -0.2rem;
+      }
+
+      .red-marker{
+        background-color: rgba($soft-red,0.5);
+      }
+
+      .yellow-marker{
+        background-color: rgba($yellow,0.5);
+      }
+
+      &:hover{
+        .red-marker{
+          background-color: rgba($soft-red,1);
+        }
+
+        .yellow-marker{
+          background-color: rgba($yellow,1);
+        }
+      }
+
+
+    }
+
+  }
+
+  .text-block-left {
+    margin: 3.9rem 0 3.5rem;
+
+    @media (min-width: $desktop-xl) {
+      margin-left: 3.4rem;
+      margin-top: 3.4rem;
+    }
+  }
+
+  .text-block-right {
+    margin: 3.9rem 0 3.5rem;
+
+    @media (min-width: $desktop-xl) {
+      margin-left: -3.4rem;
+      margin-top: 3.4rem;
+    }
+  }
+
+  .text-block-bottom {
+    margin-top: -13rem;
+    margin-bottom: 4rem;
+    width: 90%;
+    text-align: center;
+    opacity: 0.65;
+
+    @media (min-width: $desktop) {
+      margin-top: -11.3rem;
+      margin-bottom: 0;
+      width: 70%;
+    }
+
+    @media (min-width: $desktop-xl) {
+      margin-top: -16.3rem;
+      margin-bottom: 0;
+      width: 46%;
+    }
+
+    .graphic-design-block {
+      color: $dark-desaturated-cyan;
+    }
+
+    .photography-block {
+      color: $dark-blue;
+    }
+
+    h3 {
+      font-size: 21.1pt;
+      font-family: "Fraunces", sans-serif;
+      font-weight: 900;
+      margin-bottom: 1.8rem;
+      text-transform: capitalize;
+    }
+
+    p {
+      margin-bottom: 0;
+      line-height: 1.7em;
+      font-size: 11.8pt;
+      color: inherit;
+    }
+
+  }
+
+}
+
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+
+  @media (min-width: $desktop) {
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+  }
+
+
+  h2 {
+    font-size: 12pt;
+    font-family: "Fraunces", sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    color: $grayish-blue;
+
+    @media (min-width: $desktop-xl) {
+      font-size: 15.5pt;
+    }
+  }
+
+  .testimonials-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 4.25rem;
+
+    @media (min-width: $desktop-xl) {
+      width: 1100px;
+      margin-top: 5.25rem;
+      flex-direction: row;
+    }
+
+    @media (min-width: $desktop-xl) {
+      width: 1100px;
+      margin-top: 5.25rem;
+      flex-direction: row;
+    }
+  }
+
+  .client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 80%;
+    margin-bottom: 3.5rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: $desktop-xl) {
+      margin-bottom: 0 !important;
+      max-width: 333px;
+    }
+
+    img {
+      width: 72px;
+      border-radius: 4rem;
+    }
+
+    p {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      color: $very-dark-grayish-blue;
+      line-height: 1.7em;
+      font-size: 14.6pt;
+      letter-spacing: -0.067rem;
+
+      @media (min-width: $desktop-xl) {
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+      }
+    }
+
+    span:first-of-type {
+      font-family: "Fraunces", sans-serif;
+      font-weight: 900;
+      color: $very-dark-desaturated-blue;
+      font-size: 13pt;
+      margin-bottom: 1rem;
+    }
+
+    span:last-of-type {
+      color: $grayish-blue;
+      font-size: 11pt;
+      font-weight: 600;
+    }
+
+  }
+
+}
+
+.gallery {
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    @media (min-width: $desktop) {
+      flex-wrap: nowrap;
+    }
+
+    picture {
+      width: 50%;
+      display: flex;
+
+      @media (min-width: $desktop) {
+        width: 25%
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        @media (min-width: $desktop-xl) {
+          height: 450px;
+        }
+      }
+    }
+  }
+
+}
+
+
+footer {
+  height: 350px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: adjust-color($dark-moderate-cyan, $saturation: 10%, $lightness: 28%);
+
+  div:first-of-type {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    width: 300px;
+    font-size: 13pt;
+    font-weight: 600;
+
+    li a {
+      text-decoration: none;
+      color: $dark-moderate-cyan;
+
+      &:hover {
+        color: $white;
+      }
+    }
+
+  }
+
+  .socials ul {
+    width: 175px;
+
+    li a {
+      color: $dark-moderate-cyan;
+
+      &:hover {
+        svg > use {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .social-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  svg {
+    height: 33px;
+    width: 170px;
+    color: inherit;
+
+    use {
+      color: $dark-moderate-cyan;
+    }
+  }
+
+}
+
